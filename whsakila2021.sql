@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2021 at 11:00 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.13
+-- Waktu pembuatan: 23 Jun 2021 pada 13.38
+-- Versi server: 10.4.19-MariaDB
+-- Versi PHP: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 
 DELIMITER $$
 --
--- Procedures
+-- Prosedur
 --
 CREATE DEFINER=`root`@`localhost` PROCEDURE `isitimedimens` (IN `waktuMulai` DATE, IN `waktuSelesai` DATE)  BEGIN
 mulaiLoop: LOOP
@@ -48,7 +48,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer`
+-- Struktur dari tabel `customer`
 --
 
 CREATE TABLE `customer` (
@@ -57,7 +57,7 @@ CREATE TABLE `customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `customer`
+-- Dumping data untuk tabel `customer`
 --
 
 INSERT INTO `customer` (`customer_id`, `nama`) VALUES
@@ -199,7 +199,7 @@ INSERT INTO `customer` (`customer_id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fakta_pendapatan`
+-- Struktur dari tabel `fakta_pendapatan`
 --
 
 CREATE TABLE `fakta_pendapatan` (
@@ -212,7 +212,7 @@ CREATE TABLE `fakta_pendapatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `fakta_pendapatan`
+-- Dumping data untuk tabel `fakta_pendapatan`
 --
 
 INSERT INTO `fakta_pendapatan` (`time_id`, `customer_id`, `store_id`, `film_id`, `amount`, `lamapinjam`) VALUES
@@ -16417,7 +16417,7 @@ INSERT INTO `fakta_pendapatan` (`time_id`, `customer_id`, `store_id`, `film_id`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `film`
+-- Struktur dari tabel `film`
 --
 
 CREATE TABLE `film` (
@@ -16427,7 +16427,7 @@ CREATE TABLE `film` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `film`
+-- Dumping data untuk tabel `film`
 --
 
 INSERT INTO `film` (`film_id`, `judul`, `kategori`) VALUES
@@ -17393,7 +17393,7 @@ INSERT INTO `film` (`film_id`, `judul`, `kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `store`
+-- Struktur dari tabel `store`
 --
 
 CREATE TABLE `store` (
@@ -17402,7 +17402,7 @@ CREATE TABLE `store` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `store`
+-- Dumping data untuk tabel `store`
 --
 
 INSERT INTO `store` (`store_id`, `nama_kota`) VALUES
@@ -17412,7 +17412,7 @@ INSERT INTO `store` (`store_id`, `nama_kota`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `time`
+-- Struktur dari tabel `time`
 --
 
 CREATE TABLE `time` (
@@ -17425,7 +17425,7 @@ CREATE TABLE `time` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `time`
+-- Dumping data untuk tabel `time`
 --
 
 INSERT INTO `time` (`time_id`, `tahun`, `bulan`, `tanggal`, `tanggallengkap`, `namahari`) VALUES
@@ -17771,43 +17771,74 @@ INSERT INTO `time` (`time_id`, `tahun`, `bulan`, `tanggal`, `tanggallengkap`, `n
 (340, '2006', '4', '28', '2006-04-28 00:00:00', 'Friday'),
 (341, '2006', '4', '29', '2006-04-29 00:00:00', 'Saturday');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'admin123');
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `customer`
+-- Indeks untuk tabel `customer`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`customer_id`);
 
 --
--- Indexes for table `film`
+-- Indeks untuk tabel `film`
 --
 ALTER TABLE `film`
   ADD PRIMARY KEY (`film_id`);
 
 --
--- Indexes for table `store`
+-- Indeks untuk tabel `store`
 --
 ALTER TABLE `store`
   ADD PRIMARY KEY (`store_id`);
 
 --
--- Indexes for table `time`
+-- Indeks untuk tabel `time`
 --
 ALTER TABLE `time`
   ADD PRIMARY KEY (`time_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `time`
+-- AUTO_INCREMENT untuk tabel `time`
 --
 ALTER TABLE `time`
   MODIFY `time_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=683;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
