@@ -162,7 +162,7 @@
             enabled: false
           },
           tooltip: {
-            pointFormat: 'Total Film: <b>{point.y:.1f} Film</b>'
+            pointFormat: 'Jumlah Transaksi: <b>{point.y:.1f} Transaksi</b>'
           },
           series: [{
             name: 'Population',
