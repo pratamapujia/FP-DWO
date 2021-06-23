@@ -162,7 +162,7 @@
             enabled: false
           },
           tooltip: {
-            pointFormat: 'Jumlah Transaksi: <b>{point.y:.1f} Transaksi</b>'
+            pointFormat: 'Jumlah Transaksi: <b>{point.y:1f} Transaksi</b>'
           },
           series: [{
             name: 'Population',

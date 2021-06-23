@@ -117,7 +117,7 @@
           $total = mysqli_fetch_row($sql);
           //print_r($total);
 
-          $sqli = "SELECT concat('name:', s.nama_kota) as name, concat('y:',count(fp.customer_id)) as y, concat('drilldown:', s.nama_kota) as drilldown FROM fakta_pendapatan fp JOIN store s ON fp.store_id=s.store_id GROUP BY fp.store_id";
+          $sqli = "SELECT concat('name:', s.nama_kota) as name, concat('y:',count(distinct(c.nama))) as y, concat('drilldown:', s.nama_kota) as drilldown FROM fakta_pendapatan fp JOIN store s ON fp.store_id=s.store_id JOIN customer c ON fp.customer_id = c.customer_id GROUP BY fp.store_id";
           $sum_toko = mysqli_query($conn, $sqli);
           while ($row = mysqli_fetch_all($sum_toko)) {
             $data[] = $row;
@@ -210,7 +210,7 @@
           },
 
           series: [{
-            name: "Store",
+            name: "Total customer di",
             colorByPoint: true,
             data: <?= $data6; ?>
           }],
