@@ -2,7 +2,7 @@
 $dbHost = "localhost";
 $dbUser = "root";
 $dbPassword = "";
-$dbDatabase = "whsakila2021";
+$dbDatabase = "whsakila";
 
 $mysqli = mysqli_connect($dbHost, $dbUser, $dbPassword, $dbDatabase);
 
